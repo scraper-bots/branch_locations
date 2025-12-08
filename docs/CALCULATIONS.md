@@ -561,50 +561,97 @@ Higher intensity = more competitive location = harder to differentiate
 
 ---
 
-## Chart 12: Market Share by Geographic Quadrants
+## Chart 12: Regional Market Dominance Analysis
 
 ### Purpose
-Divide Azerbaijan into 4 regions and analyze market share in each.
+Analyze Bank of Baku's presence across Azerbaijan's meaningful geographic regions and identify zone leaders.
 
 ### Calculation Method
 
-**Quadrant Definition:**
+**Regional Zone Definition:**
 ```python
-lat_median = df['lat'].median()  # ~40.4°
-long_median = df['long'].median()  # ~47.8°
+def assign_zone(row):
+    """
+    Classify branches into Azerbaijan's actual geographic zones.
+    Based on administrative regions and major city boundaries.
+    """
+    lat, long = row['lat'], row['long']
 
-def assign_quadrant(row):
-    if row['lat'] >= lat_median and row['long'] >= long_median:
-        return 'Northeast'
-    elif row['lat'] >= lat_median and row['long'] < long_median:
+    # Baku City (central capital)
+    if 40.3 <= lat <= 40.5 and 49.7 <= long <= 50.0:
+        return 'Baku City'
+
+    # Absheron Peninsula (around Baku)
+    elif 40.2 <= lat <= 40.6 and 49.5 <= long <= 50.3:
+        return 'Absheron'
+
+    # North Zone (Guba, Gusar, Khachmaz)
+    elif lat > 41.0:
+        return 'North'
+
+    # Northwest Zone (Ganja, Shaki, Zagatala)
+    elif lat > 40.5 and long < 48.5:
         return 'Northwest'
-    elif row['lat'] < lat_median and row['long'] >= long_median:
-        return 'Southeast'
-    else:
-        return 'Southwest'
 
-df['quadrant'] = df.apply(assign_quadrant, axis=1)
+    # Central Zone (Mingachevir, Yevlakh, Agdash)
+    elif 40.0 <= lat <= 40.8 and 47.0 <= long < 49.5:
+        return 'Central'
+
+    # South Zone (Lankaran, Astara, Lerik)
+    elif lat < 39.0:
+        return 'South'
+
+    # West Zone (Gazakh, Tovuz)
+    elif long < 46.0:
+        return 'West'
+
+    else:
+        return 'Other'
+
+df['zone'] = df.apply(assign_zone, axis=1)
 ```
 
-**Division Lines:**
-- Horizontal: Median latitude (divides North/South)
-- Vertical: Median longitude (divides East/West)
-- Creates 4 equal-area quadrants
+**Zone Boundaries:**
+- **Baku City:** 40.3-40.5°N, 49.7-50.0°E (capital city)
+- **Absheron:** 40.2-40.6°N, 49.5-50.3°E (peninsula)
+- **North:** Lat >41.0°N (mountain regions)
+- **Northwest:** Lat >40.5°N, Long <48.5°E (Ganja region)
+- **Central:** 40.0-40.8°N, 47.0-49.5°E (Mingachevir region)
+- **South:** Lat <39.0°N (Caspian coast)
+- **West:** Long <46.0°E (border region)
 
-**Metrics per Quadrant:**
+**Metrics per Zone:**
 ```python
-for quadrant in ['Northeast', 'Northwest', 'Southeast', 'Southwest']:
-    quad_data = df[df['quadrant'] == quadrant]
+for zone in zones:
+    zone_df = df[df['zone'] == zone]
 
-    total_branches = len(quad_data)
-    bob_branches = len(quad_data[quad_data['bank_name'] == 'Bank of Baku'])
-    bob_share = (bob_branches / total_branches) * 100
+    # Zone leader
+    leader = zone_df['bank_name'].value_counts().index[0]
+    leader_count = zone_df['bank_name'].value_counts().values[0]
+
+    # Bank of Baku metrics
+    bob_count_zone = len(zone_df[zone_df['bank_name'] == 'Bank of Baku'])
+    bob_share = (bob_count_zone / len(zone_df)) * 100 if len(zone_df) > 0 else 0
+    bob_rank = (zone_df['bank_name'].value_counts() > bob_count_zone).sum() + 1
 ```
 
 ### Output Metrics
-- **Branches per Quadrant:** Count by bank
-- **BoB Share per Quadrant:** Percentage
-- **Quadrant Leaders:** Bank with most branches in each quadrant
+- **Zone Leader:** Dominant bank in each region
+- **BoB Presence:** Branch count per zone
+- **BoB Market Share:** Percentage per zone
+- **BoB Rank:** Position within each zone
+
+**Results Summary:**
+- **Baku City:** BoB has 14 branches (5.5% share, Rank #5)
+- **Absheron:** BoB has 2 branches (4.8% share, Rank #4)
+- **North:** BoB has 2 branches (2.8% share, Rank #9)
+- **Northwest:** BoB has 1 branch (1.1% share, Rank #13)
+- **Central:** BoB has NO presence (Leader: Kapital Bank with 12 branches)
+- **South:** BoB has 1 branch (5.3% share, Rank #3)
+- **West:** BoB has NO presence (Leader: Kapital Bank with 10 branches)
+
+### Strategic Insight
+Two regions with **zero Bank of Baku presence** (Central and West) represent high-priority expansion targets. Kapital Bank dominates both zones.
 
 ---
 

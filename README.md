@@ -28,77 +28,26 @@ This analysis examines **585 bank branches** across **20 banks** in Azerbaijan, 
 
 ---
 
-## 📁 Project Structure
+## 🏦 Market Landscape
 
-```
-branch_locations/
-├── data/
-│   ├── combined_atms.csv          # Consolidated branch data (585 branches, 20 banks)
-│   ├── README_COMBINED.md         # Comprehensive data documentation
-│   ├── ab_branches.csv            # AccessBank (35 branches)
-│   ├── abb_branches.csv           # ABB Bank (78 branches)
-│   ├── asb_branches.csv           # ASB Bank (7 branches)
-│   ├── bob_branches.csv           # Bank of Baku (21 branches)
-│   ├── br_branches.csv            # Bank Respublika (40 branches)
-│   ├── kb_branches.csv            # Kapital Bank (177 branches)
-│   ├── premium_branches.csv       # Premium Bank (8 branches)
-│   ├── rabita_branches.csv        # Rabita Bank (31 branches)
-│   ├── vtb_branches.csv           # VTB Bank (6 branches)
-│   ├── xalq_branches.csv          # Xalq Bank (31 branches)
-│   ├── yelo_branches.csv          # Yelo Bank (22 branches)
-│   ├── ub_branches.csv            # Unibank (36 branches)
-│   ├── atb_branches.csv           # AzerTurk Bank (17 branches)
-│   ├── afb_branches.csv           # AFB (7 branches)
-│   ├── expressbank_branches.csv   # Express Bank (16 branches)
-│   ├── turanbank_branches.csv     # Turan Bank (19 branches)
-│   ├── yapikredi_branches.csv     # Yapi Kredi Bank (8 branches)
-│   ├── ziraatbank_branches.csv    # Ziraat Bank (10 branches)
-│   ├── pashabank_branches.csv     # Pasha Bank (8 branches)
-│   └── btb_branches.csv           # BTB (8 branches)
-├── scrapers/
-│   ├── ab_branches.py             # AccessBank scraper
-│   ├── abb_branches.py            # ABB Bank scraper
-│   ├── asb_branches.py            # ASB Bank scraper
-│   ├── bob_branches.py            # Bank of Baku scraper
-│   ├── br_branches.py             # Bank Respublika scraper
-│   ├── kb_branches.py             # Kapital Bank scraper
-│   ├── premium_branches.py        # Premium Bank scraper
-│   ├── rabita_branches.py         # Rabita Bank scraper
-│   ├── vtb_branches.py            # VTB Bank scraper
-│   ├── xalq_branches.py           # Xalq Bank scraper
-│   ├── yelo_branches.py           # Yelo Bank scraper
-│   ├── ub_branches.py             # Unibank scraper
-│   ├── atb_branches.py            # AzerTurk Bank scraper
-│   ├── afb_branches.py            # AFB scraper
-│   ├── expressbank_branches.py    # Express Bank scraper
-│   ├── turanbank_branches.py      # Turan Bank scraper
-│   ├── yapikredi_branches.py      # Yapi Kredi Bank scraper
-│   ├── ziraatbank_branches.py     # Ziraat Bank scraper
-│   ├── pashabank_branches.py      # Pasha Bank scraper
-│   └── btb_branches.py            # BTB scraper
-├── scripts/
-│   ├── combine.py                 # Combine all CSVs
-│   └── run_analysis.py            # Generate all charts
-├── notebooks/
-│   └── analyse.ipynb              # Jupyter notebook analysis
-├── charts/
-│   └── 01-15_*.png                # 15 analytical charts
-├── docs/
-│   ├── CALCULATIONS.md            # Methodology documentation
-│   └── STRATEGIC_INSIGHTS.txt     # Detailed recommendations
-└── README.md                      # This file
-```
+### Banks Analyzed (20 Total)
 
----
+**Top 5 Banks:**
+1. Kapital Bank - 177 branches (30.3%)
+2. ABB Bank - 78 branches (13.3%)
+3. Bank Respublika - 40 branches (6.8%)
+4. Unibank - 36 branches (6.2%)
+5. AccessBank - 35 branches (6.0%)
 
-## 🎯 Analysis Overview
+**Mid-Tier Banks:**
+6. Rabita Bank - 31 branches
+7. Xalq Bank - 31 branches
+8. Yelo Bank - 22 branches
+9. **Bank of Baku - 21 branches** ⭐ (Focus of analysis)
+10. Turan Bank - 19 branches
 
-This project performs comprehensive geospatial and competitive analysis using:
-- **Data Collection:** Web scraping from 20 bank websites (11 original + 9 added)
-- **Statistical Methods:** DBSCAN clustering, KNN, Kernel Density Estimation
-- **Visualizations:** 15 professional charts with actionable insights
-- **Strategic Planning:** Data-driven expansion recommendations
-- **Coverage:** 585 branches with 100% coordinate accuracy
+**Smaller Banks:**
+11-20. AzerTurk Bank (17), Express Bank (16), Ziraat Bank (10), Premium Bank (8), Yapi Kredi Bank (8), Pasha Bank (8), BTB (8), ASB Bank (7), AFB (7), VTB Bank (6)
 
 ---
 
@@ -201,12 +150,12 @@ Side-by-side geographic comparison of Bank of Baku with its three largest compet
 ![Regional Clustering](charts/05_regional_clustering.png)
 
 **What This Shows:**
-DBSCAN clustering algorithm identifies **3 major regional market clusters** based on branch density. Right panel shows Bank of Baku's presence in each cluster.
+Advanced clustering analysis identifies **3 major regional market clusters** based on branch density patterns. Right panel shows Bank of Baku's presence in each cluster.
 
-**Clustering Method:**
-- Algorithm: DBSCAN (eps=0.5°, min_samples=5)
-- Identifies natural geographic groupings
-- Outliers (cluster -1) are isolated branches
+**Methodology:**
+- Identifies natural geographic groupings based on branch proximity
+- Clusters represent major market regions in Azerbaijan
+- Outliers are isolated branches in emerging markets
 
 **Key Insights:**
 - **3 major clusters identified:** Likely Baku metro, Ganja region, and southeastern cities
@@ -271,7 +220,7 @@ Three-panel analysis comparing branch distribution between Baku (capital) and re
 ![Competitive Density](charts/08_competitive_density.png)
 
 **What This Shows:**
-Heatmap using Kernel Density Estimation showing branch concentration. Left: all banks. Right: Bank of Baku locations overlaid on competitor density.
+Density heatmap showing branch concentration patterns across Azerbaijan. Left: all banks. Right: Bank of Baku locations overlaid on competitor density.
 
 **Key Insights:**
 - **Hotspots:** Baku city center shows highest density (darkest red)
@@ -296,8 +245,8 @@ Heatmap using Kernel Density Estimation showing branch concentration. Left: all 
 Identifies **198 competitor locations** that are >30km from the nearest Bank of Baku branch. Orange circles (sized by distance) show expansion opportunities.
 
 **Methodology:**
-- Nearest neighbor analysis (K-NN algorithm)
-- Gap threshold: 0.3° (~30km)
+- Distance-based analysis to identify underserved areas
+- Gap threshold: 30 kilometers from nearest BoB branch
 - Larger circles = greater distance = higher priority
 
 **Key Insights:**
@@ -362,26 +311,33 @@ Number of competitors within 10km radius of each branch. Left: bank comparison. 
 
 ---
 
-### Chart 12: Market Share by Geographic Quadrants
+### Chart 12: Regional Market Dominance Analysis
 
-![Quadrant Analysis](charts/12_quadrant_analysis.png)
+![Regional Market Dominance](charts/12_regional_market_dominance.png)
 
 **What This Shows:**
-Azerbaijan divided into 4 quadrants (NE, NW, SE, SW) using median lat/long. Shows BoB market share in each.
+Analysis of Bank of Baku's presence across Azerbaijan's actual geographic regions (Baku City, Absheron, North, Northwest, Central, South, West). Shows which banks dominate each zone and where BoB needs to expand.
 
 **Key Insights:**
-- **Northeast (Baku area):** Highest branch density, BoB has moderate presence
-- **Northwest:** Lower overall density, BoB underrepresented
-- **Southeast:** Moderate density, BoB present but small share
-- **Southwest:** Lowest density, minimal BoB presence
+- **Baku City:** BoB has 14 branches (5.5% share, Rank #5) - solid presence
+- **Absheron Peninsula:** BoB has 2 branches (4.8% share, Rank #4) - decent position
+- **North Zone:** BoB has 2 branches (2.8% share, Rank #9) - weak presence
+- **Northwest Zone:** BoB has 1 branch (1.1% share, Rank #13) - very weak presence
+- **Central Zone:** BoB has **NO presence** - Kapital Bank leads with 12 branches
+- **South Zone:** BoB has 1 branch (5.3% share, Rank #3) - surprisingly good ranking
+- **West Zone:** BoB has **NO presence** - Kapital Bank leads with 10 branches
+
+**Critical Finding:**
+Two entire regions (Central and West) have **ZERO Bank of Baku branches** while Kapital Bank dominates with 12 and 10 branches respectively.
 
 **Actionable Insights:**
-- 🗺️ **Regional imbalance:** BoB presence highly uneven across quadrants
-- 🎯 **Priority quadrants:** Northwest and Southwest need immediate attention
-- 📊 **Balanced growth:** Aim for presence in all quadrants for national reach
-- 💡 **Quadrant strategy:** Assign regional managers to each quadrant
-- 🌟 **Market coverage:** Full quadrant coverage signals national bank status
-- ⚡ **Quick wins:** Some quadrants have low total branches—easier to gain share
+- 🚨 **Critical gap identified:** Central and West zones completely unserved by BoB
+- 🎯 **Priority expansion targets:** Central (Mingachevir, Yevlakh) and West (Gazakh, Tovuz)
+- 📊 **Competitor dominance:** Kapital Bank controls both gap regions—urgent action needed
+- 💡 **Regional strategy:** Zone-based approach more meaningful than arbitrary quadrants
+- 🌟 **Market validation:** Kapital Bank's 22 branches in these zones prove strong demand
+- ⚡ **Quick wins:** South zone shows BoB can compete well (Rank #3 with only 1 branch)
+- 🗺️ **National coverage:** Cannot claim national presence with 2 missing regions
 
 ---
 
@@ -392,12 +348,10 @@ Azerbaijan divided into 4 quadrants (NE, NW, SE, SW) using median lat/long. Show
 **What This Shows:**
 Heatmap scoring 900 potential locations for expansion. Left: opportunity score heatmap. Right: top 20 recommended locations (numbered 1-5 for highest priority).
 
-**Scoring Formula:**
-```
-Opportunity Score = (Distance to Nearest BoB) × 10 + (Nearby Competitors) × 0.5
-```
-
-**High score = Far from BoB branches + Near competitors = Gap opportunity**
+**Scoring Methodology:**
+- **Distance Factor (70% weight):** Farther from BoB branches = higher opportunity
+- **Demand Factor (30% weight):** More nearby competitors = proven demand
+- **High score** = Far from BoB branches + Near competitors = Gap opportunity
 
 **Key Insights:**
 - **Top 20 locations identified:** Highest-scoring coordinates for expansion
@@ -545,10 +499,10 @@ Six-panel visual dashboard summarizing key strategic metrics for executive prese
    - **Financial:** Rental cost, local income levels, population density
 
 3. **Decision Matrix:**
-   ```
-   Score = (Gap Distance × 40%) + (Competitor Count × 30%) +
-           (Foot Traffic × 20%) + (Cost Efficiency × 10%)
-   ```
+   - Gap Distance: 40% weight
+   - Competitor Count: 30% weight
+   - Foot Traffic: 20% weight
+   - Cost Efficiency: 10% weight
 
 **Expected Impact:**
 - ✅ Higher success rate for new branches (data-validated locations)
@@ -644,11 +598,11 @@ Six-panel visual dashboard summarizing key strategic metrics for executive prese
 - End Year 3: 47 branches (~8.0% share), #5-6 position solidified
 
 **Investment Required:**
-- Per branch: ~$200-300K (setup, 12-month operations)
-- Year 1: $2-3M (10 branches)
-- Year 2: $1.6-2.4M (8 branches)
-- Year 3: $1.2-1.8M (6 branches)
-- Total 3-year: $5-7.2M
+- Per branch: ~₼340-510K (setup, 12-month operations)
+- Year 1: ₼3.4-5.1M (10 branches)
+- Year 2: ₼2.7-4.1M (8 branches)
+- Year 3: ₼2.0-3.1M (6 branches)
+- Total 3-year: ₼8.5-12.2M
 
 **Expected ROI:**
 - Break-even per branch: 18-24 months
@@ -752,89 +706,31 @@ Track these metrics quarterly to measure progress:
 
 ---
 
-## 🛠️ Technical Documentation
-
-### Data Collection
-- **Sources:** 20 bank websites (web scraping + geocoding)
-- **Total Records:** 585 branches
-- **Data Quality:** 100% with valid coordinates (583/585 = 99.7%)
-- **Update Frequency:** Quarterly recommended
-- **Methods:** JavaScript extraction, HTML parsing, Nominatim API geocoding
-
-### Analysis Methods
-- **Clustering:** DBSCAN (eps=0.5°, min_samples=5)
-- **Nearest Neighbor:** K-NN (k=1)
-- **Density Estimation:** Gaussian KDE
-- **Distance Metric:** Euclidean (lat/long)
-
-### Technologies Used
-- **Language:** Python 3.8+
-- **Data Processing:** pandas, numpy
-- **Visualization:** matplotlib, seaborn
-- **Machine Learning:** scikit-learn
-- **Statistical:** scipy
-
-### Files & Scripts
-- **Data Collection:** `scrapers/*.py` (20 scrapers)
-- **Data Combination:** `scripts/combine.py`
-- **Analysis:** `scripts/run_analysis.py`
-- **Notebook:** `notebooks/analyse.ipynb`
-- **Documentation:** `docs/CALCULATIONS.md`, `docs/STRATEGIC_INSIGHTS.txt`
-
-For detailed methodology, see [CALCULATIONS.md](docs/CALCULATIONS.md)
-
----
-
 ## 📋 How to Use This Analysis
 
 ### For Executives
-1. Review [Executive Summary](#-executive-summary)
-2. Review [Chart 15: Executive Dashboard](#chart-15-executive-summary-dashboard)
-3. Read [Strategic Recommendations](#-strategic-recommendations)
-4. Review [KPIs](#-key-performance-indicators-kpis) for tracking
+1. Review Executive Summary above
+2. Study Chart 15: Executive Summary Dashboard
+3. Read Strategic Recommendations section
+4. Review Key Performance Indicators for tracking
 
 ### For Strategy Team
 1. Study all 15 charts in detail
-2. Review [STRATEGIC_INSIGHTS.txt](docs/STRATEGIC_INSIGHTS.txt)
-3. Use [Chart 13](#chart-13-growth-opportunity-score) for site selection
-4. Refer to [CALCULATIONS.md](docs/CALCULATIONS.md) for methodology
+2. Use Chart 13 (Growth Opportunity Score) for site selection
+3. Analyze regional dominance patterns in Chart 12
+4. Focus on gap analysis (Chart 9) for immediate opportunities
 
 ### For Branch Network Team
-1. Focus on [Chart 9](#chart-9-gap-analysis---underserved-areas) for expansion locations
-2. Use [Chart 13](#chart-13-growth-opportunity-score) for prioritization
-3. Review [Chart 6-7](#chart-6-baku-city-analysis) for Baku vs Regional balance
-4. Monitor [KPIs](#-key-performance-indicators-kpis) quarterly
+1. Prioritize Chart 9 (Gap Analysis) for expansion locations
+2. Use Chart 13 (Growth Opportunity Score) for site prioritization
+3. Review Chart 6-7 for Baku vs Regional balance
+4. Monitor KPIs quarterly
 
 ### For Competitive Intelligence
-1. Study [Chart 2](#chart-2-market-share-analysis) for market positioning
-2. Review [Chart 10-11](#chart-10-nearest-competitor-analysis) for competitor proximity
-3. Analyze [Chart 14](#chart-14-multi-metric-comparison-with-leaders) for competitive benchmarking
-4. Monitor competitor branch openings quarterly
-
----
-
-## 🔄 Updating the Analysis
-
-To refresh the analysis with new data:
-
-1. **Update scrapers** (if bank websites changed):
-   ```bash
-   python3 scrapers/[bank]_branches.py
-   ```
-
-2. **Recombine data**:
-   ```bash
-   python3 scripts/combine.py
-   ```
-
-3. **Regenerate all charts**:
-   ```bash
-   python3 scripts/run_analysis.py
-   ```
-
-4. **Review updated charts** in `charts/` directory
-
-Recommended frequency: **Quarterly** or when major competitor expansion detected
+1. Study Chart 2 for market positioning trends
+2. Review Chart 10-11 for competitor proximity analysis
+3. Analyze Chart 14 for competitive benchmarking
+4. Track competitor branch openings quarterly
 
 ---
 
@@ -845,21 +741,21 @@ Recommended frequency: **Quarterly** or when major competitor expansion detected
 - Focus on highest-priority gap locations
 - Achieve 6.2% market share, #7-8 position
 - Regional coverage: 40%
-- **Investment:** ~$3-4.5M
+- **Investment:** ~₼5.1-7.7M
 
 ### Scenario 2: Balanced Growth (Recommended)
 - Add 26 branches over 3 years (10+8+8 phased)
 - Mix of gap locations and strategic competitive sites
 - Achieve 8.0% market share, #5-6 position
 - Regional coverage: 50%
-- **Investment:** ~$5.2-7.8M
+- **Investment:** ~₼8.8-13.3M
 
 ### Scenario 3: Aggressive Growth (High Risk/Reward)
 - Add 40+ branches over 3 years (15+15+10)
 - Rapid expansion into all gap locations
 - Achieve 10.4% market share, #4-5 position
 - Regional coverage: 55%+
-- **Investment:** ~$8-12M
+- **Investment:** ~₼13.6-20.4M
 - **Risk:** Overextension, quality dilution
 
 **Recommendation:** Scenario 2 (Balanced Growth) offers best risk-reward ratio
@@ -908,47 +804,10 @@ Bank of Baku faces both **challenges and opportunities**:
 - Clear path to 8-10% market share (top 5-6 position)
 
 **Bottom Line:**
-With strategic, data-driven expansion focused on regional gap locations, Bank of Baku can realistically **double its network to 47+ branches**, achieve **8-10% market share**, and secure a **top 5-6 position** within 3 years for an investment of approximately **$5-8M**.
+With strategic, data-driven expansion focused on regional gap locations, Bank of Baku can realistically **double its network to 47+ branches**, achieve **8-10% market share**, and secure a **top 5-6 position** within 3 years for an investment of approximately **₼8.5-13.6M**.
 
 The analysis provides a clear, actionable roadmap. Success depends on execution speed, location selection quality, and ability to differentiate in a competitive market.
 
----
-
-## 📞 Next Steps
-
-1. **Immediate (Week 1):**
-   - Executive presentation of findings
-   - Approval for site selection budget
-   - Form branch expansion task force
-
-2. **Short-term (Month 1-3):**
-   - Site visits to top 20 locations (Chart 13)
-   - Detailed financial modeling per location
-   - Competitive intelligence on planned expansions
-
-3. **Medium-term (Month 3-6):**
-   - Finalize Year 1 expansion plan (target: 10 branches)
-   - Lease negotiations for top sites
-   - Staff recruitment and training
-
-4. **Long-term (Month 6+):**
-   - Launch first wave of new branches (3-5)
-   - Monitor performance against KPIs
-   - Adjust strategy based on results
-
----
-
-## 📚 Additional Resources
-
-- **Detailed Insights:** [docs/STRATEGIC_INSIGHTS.txt](docs/STRATEGIC_INSIGHTS.txt)
-- **Methodology:** [docs/CALCULATIONS.md](docs/CALCULATIONS.md)
-- **Interactive Analysis:** [notebooks/analyse.ipynb](notebooks/analyse.ipynb)
-- **Data Files:** `data/*.csv`
-
----
-
 **Report Generated:** December 2025
 **Analysis Period:** Current snapshot
-**Next Update:** Quarterly (recommended)
-
-*For questions or updates to this analysis, refer to the technical documentation or re-run `scripts/run_analysis.py`*
+**Recommended Review:** Quarterly
