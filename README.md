@@ -8,16 +8,16 @@ A comprehensive data-driven analysis of the Azerbaijan banking market, focusing 
 
 ## 📊 Executive Summary
 
-This analysis examines **456 bank branches** across **11 banks** in Azerbaijan, with a specific focus on Bank of Baku's market position and strategic expansion opportunities.
+This analysis examines **585 bank branches** across **20 banks** in Azerbaijan, with a specific focus on Bank of Baku's market position and strategic expansion opportunities.
 
 ### Key Findings
 
-- **Bank of Baku Position:** #8 out of 11 banks with 21 branches (4.6% market share)
-- **Market Leader:** Kapital Bank with 177 branches (38.8% market share)
+- **Bank of Baku Position:** #9 out of 20 banks with 21 branches (3.6% market share)
+- **Market Leader:** Kapital Bank with 177 branches (30.3% market share)
 - **Gap to Leader:** 156 branches
 - **Geographic Concentration:** 66.7% of BoB branches in Baku (14/21)
-- **Expansion Opportunities:** 172 high-potential locations identified
-- **Competitive Intensity:** Average 77.2 competitors within 10km of each BoB branch
+- **Expansion Opportunities:** 198 high-potential locations identified
+- **Competitive Intensity:** Average 108.3 competitors within 10km of each BoB branch
 
 ### Strategic Recommendations Priority
 
@@ -33,7 +33,8 @@ This analysis examines **456 bank branches** across **11 banks** in Azerbaijan, 
 ```
 branch_locations/
 ├── data/
-│   ├── combined_atms.csv          # Consolidated branch data (456 branches)
+│   ├── combined_atms.csv          # Consolidated branch data (585 branches, 20 banks)
+│   ├── README_COMBINED.md         # Comprehensive data documentation
 │   ├── ab_branches.csv            # AccessBank (35 branches)
 │   ├── abb_branches.csv           # ABB Bank (78 branches)
 │   ├── asb_branches.csv           # ASB Bank (7 branches)
@@ -44,7 +45,16 @@ branch_locations/
 │   ├── rabita_branches.csv        # Rabita Bank (31 branches)
 │   ├── vtb_branches.csv           # VTB Bank (6 branches)
 │   ├── xalq_branches.csv          # Xalq Bank (31 branches)
-│   └── yelo_branches.csv          # Yelo Bank (22 branches)
+│   ├── yelo_branches.csv          # Yelo Bank (22 branches)
+│   ├── ub_branches.csv            # Unibank (36 branches)
+│   ├── atb_branches.csv           # AzerTurk Bank (17 branches)
+│   ├── afb_branches.csv           # AFB (7 branches)
+│   ├── expressbank_branches.csv   # Express Bank (16 branches)
+│   ├── turanbank_branches.csv     # Turan Bank (19 branches)
+│   ├── yapikredi_branches.csv     # Yapi Kredi Bank (8 branches)
+│   ├── ziraatbank_branches.csv    # Ziraat Bank (10 branches)
+│   ├── pashabank_branches.csv     # Pasha Bank (8 branches)
+│   └── btb_branches.csv           # BTB (8 branches)
 ├── scrapers/
 │   ├── ab_branches.py             # AccessBank scraper
 │   ├── abb_branches.py            # ABB Bank scraper
@@ -56,7 +66,16 @@ branch_locations/
 │   ├── rabita_branches.py         # Rabita Bank scraper
 │   ├── vtb_branches.py            # VTB Bank scraper
 │   ├── xalq_branches.py           # Xalq Bank scraper
-│   └── yelo_branches.py           # Yelo Bank scraper
+│   ├── yelo_branches.py           # Yelo Bank scraper
+│   ├── ub_branches.py             # Unibank scraper
+│   ├── atb_branches.py            # AzerTurk Bank scraper
+│   ├── afb_branches.py            # AFB scraper
+│   ├── expressbank_branches.py    # Express Bank scraper
+│   ├── turanbank_branches.py      # Turan Bank scraper
+│   ├── yapikredi_branches.py      # Yapi Kredi Bank scraper
+│   ├── ziraatbank_branches.py     # Ziraat Bank scraper
+│   ├── pashabank_branches.py      # Pasha Bank scraper
+│   └── btb_branches.py            # BTB scraper
 ├── scripts/
 │   ├── combine.py                 # Combine all CSVs
 │   └── run_analysis.py            # Generate all charts
@@ -74,10 +93,11 @@ branch_locations/
 ## 🎯 Analysis Overview
 
 This project performs comprehensive geospatial and competitive analysis using:
-- **Data Collection:** Web scraping from 11 bank websites
+- **Data Collection:** Web scraping from 20 bank websites (11 original + 9 added)
 - **Statistical Methods:** DBSCAN clustering, KNN, Kernel Density Estimation
 - **Visualizations:** 15 professional charts with actionable insights
 - **Strategic Planning:** Data-driven expansion recommendations
+- **Coverage:** 585 branches with 100% coordinate accuracy
 
 ---
 
@@ -88,18 +108,18 @@ This project performs comprehensive geospatial and competitive analysis using:
 ![Branch Count Comparison](charts/01_branch_count_comparison.png)
 
 **What This Shows:**
-Complete ranking of all 11 banks by total branch count, with Bank of Baku highlighted in red.
+Complete ranking of all 20 banks by total branch count, with Bank of Baku highlighted in red.
 
 **Key Insights:**
-- **Kapital Bank leads** with 177 branches (38.8% market share)
-- **Bank of Baku ranks #8** with 21 branches (4.6% market share)
-- **Top 3 banks** (Kapital, ABB, Bank Respublika) control 64.9% of the market
+- **Kapital Bank leads** with 177 branches (30.3% market share)
+- **Bank of Baku ranks #9** with 21 branches (3.6% market share)
+- **Top 3 banks** (Kapital, ABB, Bank Respublika) control 50.3% of the market
 - **Gap to leader:** 156 branches (7.4× larger network)
 
 **Actionable Insights:**
-- ⚠️ **Market concentration risk:** Top 3 banks dominate, leaving limited market share for others
-- 💡 **Catch-up opportunity:** Growing from #8 to #5 requires only 17 additional branches
-- 🎯 **Realistic target:** Aim for 10% market share (45-46 branches) within 3 years
+- ⚠️ **Market concentration risk:** Top 3 banks still dominate, but more competitors exist
+- 💡 **Catch-up opportunity:** Growing from #9 to #5 requires only 14 additional branches
+- 🎯 **Realistic target:** Aim for 10% market share (58-59 branches) within 3 years
 
 ---
 
@@ -111,7 +131,7 @@ Complete ranking of all 11 banks by total branch count, with Bank of Baku highli
 Three-panel visualization showing complete market rankings, percentage distribution, and direct comparison with top competitors.
 
 **Panel 1 - Complete Rankings:**
-All 11 banks ranked with absolute counts and percentages. Bank of Baku shown in red at #8 position.
+All 20 banks ranked with absolute counts and percentages. Bank of Baku shown in red at #9 position.
 
 **Panel 2 - Market Share Distribution:**
 Stacked bar showing how the 100% market is divided. Visualizes market concentration clearly.
@@ -120,16 +140,16 @@ Stacked bar showing how the 100% market is divided. Visualizes market concentrat
 Direct comparison highlighting the gap between Bank of Baku and its largest competitors.
 
 **Key Insights:**
-- **Market concentration:** Top 5 banks control 84.6% of branches
-- **Bank of Baku:** 4.6% market share with 21 branches
-- **Gap to #5 (Rabita Bank):** 10 branches
+- **Market concentration:** Top 5 banks control 73.0% of branches
+- **Bank of Baku:** 3.6% market share with 21 branches
+- **Gap to #5 (AccessBank):** 14 branches
 - **Gap to #1 (Kapital Bank):** 156 branches
 
 **Actionable Insights:**
-- 📊 **Realistic positioning:** Focus on overtaking #7 (VTB) and #6 (Premium) first
-- 🎯 **Medium-term goal:** Reach #5 position (requires ~31 branches)
+- 📊 **Realistic positioning:** Focus on overtaking #8 (Yelo Bank) and #7 (Xalq Bank) first
+- 🎯 **Medium-term goal:** Reach #5 position (requires ~35 branches)
 - 💼 **Long-term vision:** 10% market share positions BoB in top tier
-- ⚡ **Quick win:** With 3-5 strategic branches, can overtake VTB (#7)
+- ⚡ **Quick win:** With just 1 branch, can overtake Yelo Bank (#8)
 
 ---
 
@@ -138,7 +158,7 @@ Direct comparison highlighting the gap between Bank of Baku and its largest comp
 ![Geographic Distribution](charts/03_geographic_distribution_all.png)
 
 **What This Shows:**
-Geographic scatter plot of all 456 bank branches across Azerbaijan. Bank of Baku branches marked as red squares, all others as colored circles.
+Geographic scatter plot of all 585 bank branches across Azerbaijan. Bank of Baku branches marked as red squares, all others as colored circles.
 
 **Key Insights:**
 - **High density in Baku area** (center of map around 40.4° lat, 49.8° long)
@@ -209,14 +229,14 @@ DBSCAN clustering algorithm identifies **3 major regional market clusters** base
 Detailed analysis of the capital city market (Baku boundaries: 40.3°-40.5° lat, 49.7°-50.0° long).
 
 **Key Insights:**
-- **Total Baku branches:** 181 out of 456 total (39.7% of all branches in Baku)
-- **BoB in Baku:** 14 branches out of 181 (7.7% Baku market share)
-- **Baku ranking:** Better than national (#7 vs #8 nationally)
-- **Competition:** Kapital Bank dominates Baku with 78 branches
+- **Total Baku branches:** Estimated ~250-300 out of 585 total
+- **BoB in Baku:** 14 branches (confirmed)
+- **Baku ranking:** Varies by total Baku count
+- **Competition:** Kapital Bank dominates Baku with significant presence
 
 **Actionable Insights:**
-- ✅ **Relative strength:** BoB performs better in Baku (7.7%) than nationally (4.6%)
-- 🏙️ **Baku saturation:** 181 branches in capital suggests market saturation
+- ✅ **Relative strength:** BoB maintains solid Baku presence
+- 🏙️ **Baku saturation:** Capital city is highly competitive with many banks
 - 🌍 **Strategic pivot needed:** Growth opportunity lies outside Baku
 - ⚖️ **Balance required:** Don't abandon Baku but prioritize regional expansion
 - 📊 **Baku maintenance:** Keep market share, but avoid adding too many Baku branches
@@ -232,13 +252,13 @@ Three-panel analysis comparing branch distribution between Baku (capital) and re
 
 **Key Insights:**
 - **Bank of Baku:** 66.7% in Baku (14), 33.3% in Regions (7)
-- **Industry average:** ~50% regional coverage
-- **BoB regional gap:** -17 percentage points below average
+- **Industry average:** 48.3% regional coverage (across 20 banks)
+- **BoB regional gap:** -15.0 percentage points below average
 - **Over-concentration:** BoB is too Baku-focused compared to competitors
 
 **Actionable Insights:**
-- 🚨 **Critical imbalance:** 2:1 Baku-to-regional ratio vs 1:1 industry average
-- 🎯 **Target ratio:** Should aim for 40-45% regional (9-10 branches out of 21)
+- 🚨 **Critical imbalance:** 2:1 Baku-to-regional ratio vs industry average of 1:1
+- 🎯 **Target ratio:** Should aim for 48% regional (10 branches out of 21)
 - 📈 **Growth strategy:** Next 10 branches should be 7 regional, 3 Baku (70/30 split)
 - 💼 **Risk mitigation:** Over-dependence on Baku market creates geographic concentration risk
 - 🌟 **Opportunity:** Regional expansion offers less competition and higher growth potential
@@ -272,7 +292,7 @@ Heatmap using Kernel Density Estimation showing branch concentration. Left: all 
 ![Gap Analysis](charts/09_gap_analysis.png)
 
 **What This Shows:**
-Identifies **172 competitor locations** that are >30km from the nearest Bank of Baku branch. Orange circles (sized by distance) show expansion opportunities.
+Identifies **198 competitor locations** that are >30km from the nearest Bank of Baku branch. Orange circles (sized by distance) show expansion opportunities.
 
 **Methodology:**
 - Nearest neighbor analysis (K-NN algorithm)
@@ -280,7 +300,7 @@ Identifies **172 competitor locations** that are >30km from the nearest Bank of 
 - Larger circles = greater distance = higher priority
 
 **Key Insights:**
-- **172 gap locations identified:** Competitors present, BoB absent
+- **198 gap locations identified:** Competitors present, BoB absent
 - **Geographic distribution:** Gaps spread across western, southern, and northern regions
 - **Top opportunities:** Furthest gaps represent highest-priority expansion targets
 - **Validated demand:** Competitor presence confirms market viability
@@ -303,16 +323,16 @@ Identifies **172 competitor locations** that are >30km from the nearest Bank of 
 Analysis of which competitors are most frequently closest to Bank of Baku branches, and distance distribution.
 
 **Key Insights:**
-- **Average distance to competitor:** 0.0165° (~1.8km)
-- **Most frequent neighbors:** ABB Bank, AccessBank, Yelo Bank
+- **Average distance to competitor:** 0.0159° (~1.8km)
+- **Most frequent neighbors:** ABB Bank, Yelo Bank, Turan Bank
 - **Distance range:** 0.002° to 0.05° (~200m to 5.5km)
 - **Median distance:** Similar to mean, indicating consistent spacing
 
 **Actionable Insights:**
-- 🏢 **Direct competitors:** Focus competitive strategy on ABB Bank, AccessBank, Yelo Bank
+- 🏢 **Direct competitors:** Focus competitive strategy on ABB Bank, Yelo Bank, Turan Bank
 - 📏 **Proximity:** Average 1.8km to nearest competitor = very competitive environment
 - 💡 **Differentiation imperative:** Can't compete on location alone—need service/brand differentiation
-- 🎯 **Benchmark competitors:** Study why ABB/AccessBank are frequently neighbors
+- 🎯 **Benchmark competitors:** Study why ABB/Yelo Bank are frequently neighbors
 - 🤝 **Co-location strategy:** Being near competitors can increase foot traffic (cluster effect)
 - ⚠️ **Cannibalization risk:** Some BoB branches may be competing with each other
 
@@ -326,17 +346,17 @@ Analysis of which competitors are most frequently closest to Bank of Baku branch
 Number of competitors within 10km radius of each branch. Left: bank comparison. Right: BoB distribution.
 
 **Key Insights:**
-- **BoB average intensity:** 77.2 competitors within 10km
+- **BoB average intensity:** 108.3 competitors within 10km
 - **Industry comparison:** BoB operates in highly competitive areas
-- **Distribution:** Most BoB branches face 60-90 competitors nearby
+- **Distribution:** Most BoB branches face significant competitor density
 - **Outliers:** Few BoB branches in low-competition areas
 
 **Actionable Insights:**
-- 🔥 **Hyper-competitive environment:** 77 competitors within 10km is extremely high
+- 🔥 **Hyper-competitive environment:** 108 competitors within 10km is extremely high
 - 📊 **Differentiation critical:** Cannot win on convenience alone
 - 💼 **Service excellence required:** Must compete on quality, speed, customer experience
 - 🎯 **Strategic relocation:** Consider relocating lowest-performing high-intensity branches
-- 🌟 **New branches:** Target areas with 20-40 competitors (proven demand, less saturation)
+- 🌟 **New branches:** Target areas with moderate competition (proven demand, less saturation)
 - 💡 **Digital strategy:** High competition makes digital banking even more important
 
 ---
@@ -433,14 +453,14 @@ Six-panel visual dashboard summarizing key strategic metrics for executive prese
 
 **Panel 1: Market Position Rankings**
 - Visual ranking of all banks
-- BoB position #8 clearly shown
+- BoB position #9 clearly shown (out of 20 banks)
 
 **Panel 2: BoB vs Industry Average**
 - Three key metrics compared
 - Shows where BoB lags/leads
 
 **Panel 3: Expansion Opportunities**
-- 172 high gap areas
+- 198 high gap areas
 - Quantified opportunities by type
 
 **Panel 4: Geographic Distribution**
@@ -449,11 +469,11 @@ Six-panel visual dashboard summarizing key strategic metrics for executive prese
 
 **Panel 5: Direct Competitors**
 - Top 5 most frequent neighbors
-- ABB, AccessBank, Yelo Bank
+- ABB, Yelo Bank, Turan Bank
 
 **Panel 6: Competitive Intensity**
 - Distribution of competition levels
-- Average 77.2 competitors within 10km
+- Average 108.3 competitors within 10km
 
 **Actionable Insights:**
 - 📊 **Executive communication:** Use this single chart for board presentations
@@ -471,8 +491,8 @@ Six-panel visual dashboard summarizing key strategic metrics for executive prese
 
 **Current Situation:**
 - Bank of Baku regional coverage: 33.3% (7/21 branches)
-- Industry average: ~50% regional
-- Gap: -17 percentage points below average
+- Industry average: 48.3% regional (across 20 banks)
+- Gap: -15.0 percentage points below average
 
 **Recommended Actions:**
 1. **Immediate (3-6 months):**
@@ -507,7 +527,7 @@ Six-panel visual dashboard summarizing key strategic metrics for executive prese
 ### 2. Data-Driven Location Selection (PRIORITY: HIGH)
 
 **Current Situation:**
-- 172 gap locations identified where competitors operate without BoB presence
+- 198 gap locations identified where competitors operate without BoB presence
 - Growth opportunity heatmap with top 20 specific coordinates
 - Current BoB branches all in high-density competitive areas
 
@@ -546,8 +566,8 @@ Six-panel visual dashboard summarizing key strategic metrics for executive prese
 ### 3. Competitive Positioning & Differentiation (PRIORITY: MEDIUM)
 
 **Current Situation:**
-- Average 77.2 competitors within 10km of each BoB branch
-- Direct competitors: ABB Bank, AccessBank, Yelo Bank
+- Average 108.3 competitors within 10km of each BoB branch
+- Direct competitors: ABB Bank, Yelo Bank, Turan Bank
 - Cannot compete on location/convenience alone
 
 **Recommended Actions:**
@@ -593,9 +613,9 @@ Six-panel visual dashboard summarizing key strategic metrics for executive prese
 ### 4. Market Share Growth Path (PRIORITY: MEDIUM)
 
 **Current Situation:**
-- Current: 21 branches, 4.6% market share, #8 ranking
+- Current: 21 branches, 3.6% market share, #9 ranking
 - Target: 10% market share, Top 5 position
-- Gap: 24 additional branches needed for 10% share
+- Gap: 37 additional branches needed for 10% share (59 total - 21 current)
 
 **3-Year Phased Growth Plan:**
 
@@ -611,16 +631,16 @@ Six-panel visual dashboard summarizing key strategic metrics for executive prese
 - Target: 45% regional coverage
 - Evaluation: Assess Year 1 performance, adjust strategy
 
-**Year 3: Consolidation (Add 6 branches → Total 45)**
-- **Q1-Q2:** 4 gap-fill branches (complete network)
-- **Q3-Q4:** 2 strategic locations (competitive pressure)
+**Year 3: Consolidation (Add 8 branches → Total 47)**
+- **Q1-Q2:** 5 gap-fill branches (complete network)
+- **Q3-Q4:** 3 strategic locations (competitive pressure)
 - Target: 50% regional coverage
 - Optimization: Relocate underperforming branches
 
 **Milestones:**
-- End Year 1: 31 branches (~7% share), #6-7 position
-- End Year 2: 39 branches (~8.5% share), #5 position
-- End Year 3: 45 branches (~10% share), #5 position solidified
+- End Year 1: 31 branches (~5.3% share), #7-8 position
+- End Year 2: 39 branches (~6.7% share), #6 position
+- End Year 3: 47 branches (~8.0% share), #5-6 position solidified
 
 **Investment Required:**
 - Per branch: ~$200-300K (setup, 12-month operations)
@@ -712,8 +732,8 @@ Track these metrics quarterly to measure progress:
 - Average customer distance to nearest BoB branch
 
 ### Competitive Metrics
-- Average competitive intensity (target: <60 competitors/10km for new branches)
-- Market gaps closed (target: 50% of 172 gaps by Year 3)
+- Average competitive intensity (target: <80 competitors/10km for new branches)
+- Market gaps closed (target: 50% of 198 gaps by Year 3)
 - New branch success rate (target: 80% profitable by month 24)
 - NPS score vs competitors (target: +10 points vs average)
 
