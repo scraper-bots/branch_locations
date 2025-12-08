@@ -7,6 +7,7 @@ export const size = {
 };
 
 export const contentType = 'image/png';
+export const dynamic = 'force-static';
 
 // Apple Icon component (larger, more detailed)
 export default function AppleIcon() {

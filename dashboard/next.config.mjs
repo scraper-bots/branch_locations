@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'standalone',
+  output: 'export',
   turbopack: {},
   webpack: (config) => {
     config.externals = [...(config.externals || []), { canvas: 'canvas' }];
