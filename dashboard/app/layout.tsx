@@ -26,7 +26,9 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  userScalable: true,
   themeColor: "#667eea",
+  viewportFit: "cover",
 };
 
 import Navigation from '@/components/Navigation';

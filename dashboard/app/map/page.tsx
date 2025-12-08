@@ -39,28 +39,28 @@ export default function MapPage() {
       </div>
 
       {/* Map Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Bank Selector Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+        <div className="flex flex-col lg:grid lg:grid-cols-4 gap-4 sm:gap-6">
+          {/* Bank Selector - Mobile: Collapsible, Desktop: Sidebar */}
+          <div className="lg:col-span-1 order-1">
+            <div className="lg:sticky lg:top-24">
               <BankSelector selectedBank={selectedBank} onSelectBank={setSelectedBank} />
             </div>
           </div>
 
           {/* Full-Screen Map */}
-          <div className="lg:col-span-3">
-            <div className="glass rounded-2xl shadow-2xl border border-white/30 overflow-hidden">
+          <div className="lg:col-span-3 order-2">
+            <div className="glass rounded-xl sm:rounded-2xl shadow-2xl border border-white/30 overflow-hidden">
               {/* Map Header */}
-              <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-4">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-white">
+              <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-4 sm:px-6 py-3 sm:py-4">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                  <h2 className="text-lg sm:text-2xl font-bold text-white">
                     {selectedBank && selectedBank !== 'all' ? selectedBank : 'All Banks'}
                   </h2>
                   {selectedBank && selectedBank !== 'all' && (
                     <button
                       onClick={() => setSelectedBank('all')}
-                      className="px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-lg hover:bg-white/30 transition-all text-sm font-semibold"
+                      className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-lg hover:bg-white/30 transition-all text-xs sm:text-sm font-semibold"
                     >
                       Show All Banks
                     </button>
@@ -69,41 +69,41 @@ export default function MapPage() {
               </div>
 
               {/* Map */}
-              <div className="h-[calc(100vh-300px)] min-h-[600px] bg-gray-100">
+              <div className="h-[50vh] sm:h-[60vh] lg:h-[calc(100vh-300px)] lg:min-h-[600px] bg-gray-100">
                 <BranchMap selectedBank={selectedBank} />
               </div>
             </div>
 
             {/* Map Legend */}
-            <div className="mt-6 glass rounded-2xl shadow-xl p-6 border border-white/30">
-              <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-4">
+            <div className="mt-4 sm:mt-6 glass rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 border border-white/30">
+              <h3 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-3 sm:mb-4">
                 Map Legend
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="flex items-center space-x-3 p-3 bg-gradient-to-br from-red-50 to-red-100 rounded-xl border border-red-200">
-                  <div className="w-8 h-8 rounded-full bg-red-600 border-2 border-white shadow-lg flex-shrink-0"></div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gradient-to-br from-red-50 to-red-100 rounded-lg sm:rounded-xl border border-red-200">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-red-600 border-2 border-white shadow-lg flex-shrink-0"></div>
                   <div>
-                    <p className="text-sm font-bold text-gray-900">Bank of Baku</p>
-                    <p className="text-xs text-gray-600">Bright Red - 35px</p>
+                    <p className="text-xs sm:text-sm font-bold text-gray-900">Bank of Baku</p>
+                    <p className="text-[10px] sm:text-xs text-gray-600">Bright Red - Large</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3 p-3 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
-                  <div className="w-6 h-6 rounded-full bg-blue-500 border border-white shadow flex-shrink-0"></div>
+                <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg sm:rounded-xl border border-blue-100">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-500 border border-white shadow flex-shrink-0"></div>
                   <div>
-                    <p className="text-sm font-bold text-gray-900">Other Banks</p>
-                    <p className="text-xs text-gray-600">Unique colors - 25px</p>
+                    <p className="text-xs sm:text-sm font-bold text-gray-900">Other Banks</p>
+                    <p className="text-[10px] sm:text-xs text-gray-600">Unique colors</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-3 p-3 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl border border-purple-100">
-                  <svg className="w-6 h-6 text-purple-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center space-x-2 sm:space-x-3 p-2 sm:p-3 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg sm:rounded-xl border border-purple-100">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                   <div>
-                    <p className="text-sm font-bold text-gray-900">Interactive</p>
-                    <p className="text-xs text-gray-600">Click markers</p>
+                    <p className="text-xs sm:text-sm font-bold text-gray-900">Interactive</p>
+                    <p className="text-[10px] sm:text-xs text-gray-600">Tap markers</p>
                   </div>
                 </div>
               </div>
