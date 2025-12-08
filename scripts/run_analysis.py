@@ -588,19 +588,51 @@ ax1.set_title('Market Gaps - Competitor Locations Far from Bank of Baku\\n(Large
 ax1.legend(fontsize=10)
 ax1.grid(True, alpha=0.3)
 
-# Top gap opportunities
-top_gaps = gaps.head(15)
-ax2.scatter(range(len(top_gaps)), top_gaps['distance_to_bob'],
-           s=100, alpha=0.7, color='#f39c12', edgecolors='black', linewidth=1)
-ax2.set_xlabel('Opportunity Rank', fontsize=11)
-ax2.set_ylabel('Distance to Nearest Bank of Baku Branch (degrees)', fontsize=11)
-ax2.set_title('Top 15 Expansion Opportunities by Distance', fontsize=13, fontweight='bold')
-ax2.grid(True, alpha=0.3)
+# Top gap opportunities - Enhanced horizontal bar chart
+top_gaps = gaps.head(15).reset_index(drop=True)
 
-# Add horizontal line for average
-ax2.axhline(y=gaps['distance_to_bob'].mean(), color='r', linestyle='--',
-           label=f'Average: {gaps["distance_to_bob"].mean():.2f}°', linewidth=2)
-ax2.legend(fontsize=10)
+# Create gradient colors (farther = greener, closer = redder)
+colors_gaps = ['#2ecc71', '#27ae60', '#16a085', '#1abc9c', '#3498db',
+               '#2980b9', '#8e44ad', '#9b59b6', '#e67e22', '#f39c12',
+               '#f1c40f', '#e74c3c', '#c0392b', '#d35400', '#c0392b']
+
+# Reverse for bar chart (top is best)
+y_positions = range(len(top_gaps)-1, -1, -1)
+distances = top_gaps['distance_to_bob'].values
+
+bars = ax2.barh(y_positions, distances, color=colors_gaps[:len(top_gaps)],
+                edgecolor='black', linewidth=1.5, alpha=0.85)
+
+# Add value labels with km conversion and bank names
+for i, (y_pos, distance, bank) in enumerate(zip(y_positions, distances, top_gaps['bank'].values)):
+    # Add distance label at end of bar
+    km_dist = distance * 111  # Convert to km
+    ax2.text(distance + 0.02, y_pos, f'{distance:.3f}° (~{km_dist:.1f}km)',
+            va='center', ha='left', fontweight='bold', fontsize=9)
+
+    # Add bank name inside bar
+    bank_label = bank if len(bank) <= 15 else bank[:13] + '..'
+    ax2.text(distance * 0.5, y_pos, bank_label,
+            va='center', ha='center', fontweight='bold', fontsize=8,
+            color='white', bbox=dict(boxstyle='round,pad=0.3',
+            facecolor='black', alpha=0.3, edgecolor='none'))
+
+ax2.set_yticks(y_positions)
+ax2.set_yticklabels([f'#{i+1}' for i in range(len(top_gaps))], fontsize=10, fontweight='bold')
+ax2.set_xlabel('Distance to Nearest Bank of Baku Branch (degrees)\n[1° ≈ 111 km]',
+              fontsize=11, fontweight='bold')
+ax2.set_ylabel('Opportunity Rank', fontsize=11, fontweight='bold')
+ax2.set_title('Top 15 Expansion Opportunities by Distance\n(Greener bars = farther from BoB = higher priority)',
+             fontsize=13, fontweight='bold')
+ax2.grid(True, alpha=0.3, axis='x', linestyle='--')
+ax2.set_facecolor('#f8f9fa')
+
+# Add average line
+avg_distance = gaps['distance_to_bob'].mean()
+ax2.axvline(x=avg_distance, color='#e74c3c', linestyle='--',
+           label=f'Average gap: {avg_distance:.3f}° (~{avg_distance*111:.1f}km)',
+           linewidth=3, zorder=10, alpha=0.9)
+ax2.legend(fontsize=10, frameon=True, fancybox=True, shadow=True, loc='lower right')
 
 plt.tight_layout()
 plt.savefig('charts/09_gap_analysis.png', dpi=300, bbox_inches='tight')
