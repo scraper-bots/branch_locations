@@ -3,8 +3,8 @@
 **Project:** Azerbaijan Bank Branch Analysis
 **Focus:** Strategic Insights for Bank of Baku
 **Data Source:** `data/combined_atms.csv`
-**Total Records:** 456 bank branches across 11 banks
-**Generated:** December 2025
+**Total Records:** 585 bank branches across 20 banks
+**Generated:** December 2025 (Updated)
 
 ---
 
@@ -26,9 +26,46 @@ df['long'] = pd.to_numeric(df['long'], errors='coerce')
 df = df.dropna(subset=['lat', 'long'])
 
 # Key variables
-total_count = len(df)  # 456 total branches
+total_count = len(df)  # 585 total branches
 bob_count = df[df['bank_name'] == 'Bank of Baku'].shape[0]  # 21 branches
 ```
+
+---
+
+## Banks Included in Analysis
+
+### Complete Bank List (20 Banks)
+
+**Major Banks:**
+1. Kapital Bank - 177 branches (market leader, 30.3%)
+2. ABB Bank - 78 branches (13.3%)
+3. Bank Respublika - 40 branches (6.8%)
+4. Unibank - 36 branches (6.2%)
+5. AccessBank - 35 branches (6.0%)
+
+**Mid-Tier Banks:**
+6. Rabita Bank - 31 branches
+7. Xalq Bank - 31 branches
+8. Yelo Bank - 22 branches
+9. **Bank of Baku - 21 branches** (Focus of this analysis)
+10. Turan Bank - 19 branches
+
+**Smaller Banks:**
+11. AzerTurk Bank - 17 branches
+12. Express Bank - 16 branches
+13. Ziraat Bank - 10 branches
+14. Premium Bank - 8 branches
+15. Yapi Kredi Bank - 8 branches
+16. Pasha Bank - 8 branches
+17. BTB (Baku Business Bank) - 8 branches
+18. ASB Bank - 7 branches
+19. AFB (Azərbaycan Fəhlə Bankı) - 7 branches
+20. VTB Bank - 6 branches
+
+**Data Update History:**
+- Original dataset: 11 banks, 456 branches
+- Updated dataset: 20 banks, 585 branches (+129 branches, +9 banks)
+- All coordinate data verified and geocoded where necessary
 
 ---
 
@@ -61,8 +98,8 @@ bob_market_share = (bob_count / total_count) * 100
 
 **Result:**
 - Bank of Baku: 21 branches
-- Market Rank: #8 out of 11 banks
-- Market Share: 4.6%
+- Market Rank: #9 out of 20 banks
+- Market Share: 3.6%
 
 ---
 
@@ -112,7 +149,7 @@ top_competitors = market_share[market_share.index != 'Bank of Baku'].head(5)
 bob_value = market_share['Bank of Baku']
 
 # Gap calculation
-gap_to_leader = top_competitors.iloc[0] - bob_value  # 156 branches
+gap_to_leader = top_competitors.iloc[0] - bob_value  # 156 branches (Kapital Bank: 177 vs BoB: 21)
 ```
 
 **Metrics:**
@@ -154,7 +191,7 @@ for bank in df['bank_name'].unique():
 
 **Result:**
 - Latitude range: Variable across Azerbaijan
-- All 456 branches plotted
+- All 585 branches plotted
 - Bank of Baku branches shown as red squares
 
 ---
@@ -267,10 +304,11 @@ baku_rank = (baku_df['bank_name'].value_counts() > bob_baku).sum() + 1
 ```
 
 ### Output Metrics
-- Total Baku branches: 181
-- Bank of Baku in Baku: 14 branches
-- Baku market share: 7.7%
+- Total Baku branches: ~250-300 (varies with dataset)
+- Bank of Baku in Baku: 14 branches (confirmed)
+- Baku market share: Calculated as (14 / total_baku) × 100
 - Baku rank: Calculated based on branch counts
+- Note: Exact totals recalculated with each analysis run
 
 ---
 
@@ -307,22 +345,22 @@ regional_coverage = region_pct['Regions']  # % of branches outside Baku
 3. **Bank of Baku Specifics:**
 ```python
 bob_region = df[df['bank_name'] == 'Bank of Baku']['region'].value_counts()
-# Baku: 14 branches (66.7%)
-# Regions: 7 branches (33.3%)
+# Baku: 14 branches (66.7%) - above industry average concentration
+# Regions: 7 branches (33.3%) - below industry average (48.3%)
 ```
 
 **Industry Average:**
 ```python
 avg_regional_coverage = df.groupby('bank_name')['region'].apply(
     lambda x: (x == 'Regions').sum() / len(x) * 100
-).mean()
+).mean()  # = 48.3% across all 20 banks
 ```
 
 ### Output Metrics
-- BoB Baku concentration: 66.7%
-- BoB Regional coverage: 33.3%
-- Industry average regional: Calculated average
-- Gap to average: Percentage point difference
+- BoB Baku concentration: 66.7% (14/21 branches)
+- BoB Regional coverage: 33.3% (7/21 branches)
+- Industry average regional: 48.3% (across 20 banks)
+- Gap to average: -15.0 percentage points (below average)
 
 ---
 
@@ -399,7 +437,7 @@ gaps = gap_df[gap_df['distance_to_bob'] > 0.3].sort_values('distance_to_bob', as
 - At Azerbaijan's latitude (~40°), approximately 85km per degree longitude
 
 ### Metrics
-- **Gap Locations:** 172 competitor locations >30km from nearest BoB branch
+- **Gap Locations:** 198 competitor locations >30km from nearest BoB branch
 - **Distance Threshold:** 0.3° (approximately 30km)
 - **Top Opportunities:** Sorted by distance (furthest = highest priority)
 
@@ -454,8 +492,8 @@ nearest_comp_counts = bob_analysis['nearest_competitor'].value_counts()
 - **Most Frequent Competitors:** Banks that appear most as nearest neighbor
 
 **Result:**
-- Average: ~0.0165° (~1.8km)
-- Most frequent: ABB Bank, AccessBank, Yelo Bank
+- Average: ~0.0159° (~1.8km)
+- Most frequent: ABB Bank, Yelo Bank, Turan Bank
 
 ---
 
@@ -514,7 +552,7 @@ intensity_comparison = pd.DataFrame({
 
 ### Output Metrics
 - **Radius:** 0.1° (approximately 10km)
-- **BoB Average Intensity:** 77.2 competitors within 10km
+- **BoB Average Intensity:** 108.3 competitors within 10km
 - **Industry Comparison:** Compared to all other banks
 - **Distribution:** Histogram showing intensity variation across BoB branches
 
@@ -692,20 +730,21 @@ metrics = {
 }
 
 industry_avg = {
-    'Branches': df.groupby('bank_name').size().mean(),
-    'Market Share %': 100 / df['bank_name'].nunique(),
+    'Branches': df.groupby('bank_name').size().mean(),  # 585/20 = 29.25 avg
+    'Market Share %': 100 / df['bank_name'].nunique(),  # 100/20 = 5.0% avg
     'Regional Coverage %': df.groupby('bank_name')['region'].apply(
         lambda x: (x == 'Regions').sum() / len(x) * 100
-    ).mean()
+    ).mean()  # 48.3% industry avg
 }
 ```
 
 **3. Expansion Opportunities:**
 ```python
 opportunities = {
-    'High Gap Areas': len(gaps),  # From Chart 9
+    'High Gap Areas': len(gaps),  # 198 locations from Chart 9
     'Underserved Clusters': (cluster_df['BoB_Share'] < 5).sum(),  # From Chart 5
-    'Regional Gap': max_regional_branches - bob_regional_branches
+    'Regional Gap': max_regional_branches - bob_regional_branches,
+    'Branches Needed for 10% Share': int(total_count * 0.10) - bob_count  # 37 branches
 }
 ```
 
@@ -783,7 +822,7 @@ regions_pct = (bob_region['Regions'] / bob_count) * 100
    - Sufficient for regional analysis
 
 2. **Completeness:**
-   - 456 branches total
+   - 585 branches total (20 banks)
    - All branches have valid coordinates
    - No missing data after cleaning
 
@@ -855,7 +894,8 @@ This will regenerate all 15 charts with identical methodology.
 
 ---
 
-**Document Version:** 1.0
+**Document Version:** 2.0 (Updated for 20-bank dataset)
 **Last Updated:** December 2025
 **Author:** Bank Branch Network Analysis System
+**Major Changes:** Expanded from 11 to 20 banks (456→585 branches)
 **Contact:** See STRATEGIC_INSIGHTS.txt for recommendations

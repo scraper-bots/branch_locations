@@ -2,26 +2,26 @@
 ================================================================================
 BANK OF BAKU - STRATEGIC ANALYSIS & ACTIONABLE INSIGHTS
 ================================================================================
-Generated: 2025-12-08 00:39:13
+Generated: 2025-12-08 14:56:05
 
 EXECUTIVE SUMMARY
 ================================================================================
 
 CURRENT MARKET POSITION:
-• Market Rank: #8 out of 11 banks
+• Market Rank: #9 out of 20 banks
 • Total Branches: 21
-• Market Share: 4.6%
+• Market Share: 3.6%
 • Gap to Market Leader (Kapital Bank): 156 branches
 
 GEOGRAPHIC FOOTPRINT:
 • Baku Concentration: 14/21 branches (66.7%)
 • Regional Presence: 7/21 branches (33.3%)
-• Average Competitive Intensity: 77.2 competitors within 10km radius
+• Average Competitive Intensity: 108.3 competitors within 10km radius
 
 COMPETITIVE LANDSCAPE:
-• Most Frequent Direct Competitors: ABB Bank, AccessBank, Yelo Bank
-• Average Distance to Nearest Competitor: 0.0165° (~1.8km)
-• Total Market Competitors Identified: 172 competitor locations >30km from nearest BoB branch
+• Most Frequent Direct Competitors: ABB Bank, Yelo Bank, Turan Bank
+• Average Distance to Nearest Competitor: 0.0159° (~1.8km)
+• Total Market Competitors Identified: 198 competitor locations >30km from nearest BoB branch
 
 ================================================================================
 STRATEGIC RECOMMENDATIONS
@@ -31,9 +31,9 @@ STRATEGIC RECOMMENDATIONS
 
    Current Situation:
    • Bank of Baku's regional coverage (33.3%) is significantly below
-     the industry average (55.2%)
+     the industry average (48.3%)
    • Heavy concentration in Baku (66.7%) limits growth potential
-   • 172 high-potential locations identified where competitors operate without BoB presence
+   • 198 high-potential locations identified where competitors operate without BoB presence
 
    Recommended Actions:
    • Prioritize expansion into regional cities with existing competitor presence
@@ -49,9 +49,9 @@ STRATEGIC RECOMMENDATIONS
 2. STRATEGIC LOCATION SELECTION (PRIORITY: HIGH)
 
    Current Situation:
-   • Gap Analysis identified 172 competitor locations far from BoB branches
+   • Gap Analysis identified 198 competitor locations far from BoB branches
    • Growth Opportunity Score analysis pinpointed top 20 optimal expansion coordinates
-   • Current branches face high competitive intensity (77.2 competitors within 10km)
+   • Current branches face high competitive intensity (108.3 competitors within 10km)
 
    Recommended Actions:
    • Use the Growth Opportunity Heatmap (Chart 13) to identify specific coordinates
@@ -72,8 +72,8 @@ STRATEGIC RECOMMENDATIONS
 3. COMPETITIVE POSITIONING (PRIORITY: MEDIUM)
 
    Current Situation:
-   • Main competitors in proximity: ABB Bank, AccessBank, Yelo Bank
-   • Average 77.2 competitors within 10km of each BoB branch
+   • Main competitors in proximity: ABB Bank, Yelo Bank, Turan Bank
+   • Average 108.3 competitors within 10km of each BoB branch
    • High competitive intensity in Baku market
 
    Recommended Actions:
@@ -90,23 +90,23 @@ STRATEGIC RECOMMENDATIONS
 4. MARKET SHARE GROWTH PATH (PRIORITY: MEDIUM)
 
    Current Situation:
-   • Current market share: 4.6%
-   • To reach 10% market share: Need 24 additional branches
-   • To match #5 position: Need 10 additional branches
+   • Current market share: 3.6%
+   • To reach 10% market share: Need 37 additional branches
+   • To match #5 position: Need 14 additional branches
 
    Recommended Growth Strategy:
 
-   Phase 1 (Year 1): Add 9 branches
+   Phase 1 (Year 1): Add 14 branches
    • 60% in regional areas (identified gap locations)
    • 40% in Baku suburbs (underserved neighborhoods)
    • Focus on quick wins with existing infrastructure support
 
-   Phase 2 (Year 2): Add 8 branches
+   Phase 2 (Year 2): Add 12 branches
    • Continue regional expansion
    • Enter new regional clusters identified in cluster analysis
    • Evaluate Phase 1 performance and adjust strategy
 
-   Phase 3 (Year 3): Add 6 branches
+   Phase 3 (Year 3): Add 9 branches
    • Fill remaining gaps in network coverage
    • Optimize branch network based on performance data
    • Consider branch format innovation (micro-branches, mobile branches)
@@ -151,7 +151,7 @@ KEY PERFORMANCE INDICATORS TO TRACK
 
 3. Competitive Metrics:
    • Average competitive intensity per branch
-   • Market gaps closed (target: 50% of identified 172 gaps within 3 years)
+   • Market gaps closed (target: 50% of identified 198 gaps within 3 years)
    • New branch success rate in gap areas
 
 4. Financial Performance:
@@ -164,7 +164,7 @@ CONCLUSION
 ================================================================================
 
 Bank of Baku currently holds a modest position in the Azerbaijan banking market
-with 21 branches (4.6% market share, ranked #8). However, significant
+with 21 branches (3.6% market share, ranked #9). However, significant
 growth opportunities exist:
 
 STRENGTHS:
@@ -173,12 +173,12 @@ STRENGTHS:
 ✓ Opportunities for strategic expansion with minimal direct competition
 
 OPPORTUNITIES:
-✓ 172 identified gap locations with competitor presence but no BoB branch
+✓ 198 identified gap locations with competitor presence but no BoB branch
 ✓ Regional markets significantly underserved (only 33.3% of branches)
-✓ Clear path to 10% market share with 24 strategic branch additions
+✓ Clear path to 10% market share with 37 strategic branch additions
 
 CHALLENGES:
-⚠ High competitive intensity in Baku (77.2 competitors per branch within 10km)
+⚠ High competitive intensity in Baku (108.3 competitors per branch within 10km)
 ⚠ Below-average regional coverage compared to competitors
 ⚠ Significant gap to market leaders (Kapital Bank: 177 branches)
 
