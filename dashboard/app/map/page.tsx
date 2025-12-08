@@ -81,19 +81,19 @@ export default function MapPage() {
               </h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="flex items-center space-x-3 p-3 bg-gradient-to-br from-red-50 to-pink-50 rounded-xl border border-red-100">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-pink-500 border-2 border-white shadow-lg flex-shrink-0"></div>
+                <div className="flex items-center space-x-3 p-3 bg-gradient-to-br from-red-50 to-red-100 rounded-xl border border-red-200">
+                  <div className="w-8 h-8 rounded-full bg-red-600 border-2 border-white shadow-lg flex-shrink-0"></div>
                   <div>
                     <p className="text-sm font-bold text-gray-900">Bank of Baku</p>
-                    <p className="text-xs text-gray-600">Primary focus</p>
+                    <p className="text-xs text-gray-600">Bright Red - 35px</p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-3 p-3 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border border-white shadow flex-shrink-0"></div>
+                  <div className="w-6 h-6 rounded-full bg-blue-500 border border-white shadow flex-shrink-0"></div>
                   <div>
                     <p className="text-sm font-bold text-gray-900">Other Banks</p>
-                    <p className="text-xs text-gray-600">Competitors</p>
+                    <p className="text-xs text-gray-600">Unique colors - 25px</p>
                   </div>
                 </div>
 

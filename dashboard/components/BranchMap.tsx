@@ -14,18 +14,26 @@ interface BranchMapProps {
   selectedBank?: string | null;
 }
 
-// Define color mapping for banks
+// Define color mapping for banks - Bank of Baku in distinct red, others in cool tones
 const bankColors: { [key: string]: string } = {
-  'Bank of Baku': '#e74c3c',
-  'Kapital Bank': '#3498db',
-  'ABB Bank': '#2ecc71',
-  'Yelo Bank': '#f39c12',
-  'Rabita Bank': '#9b59b6',
-  'Xalq Bank': '#1abc9c',
-  'AccessBank': '#e67e22',
-  'Unibank': '#34495e',
-  'VTB Bank': '#16a085',
-  'Bank Respublika': '#c0392b',
+  'Bank of Baku': '#FF0000',        // Bright red - highly distinct
+  'Kapital Bank': '#2196F3',        // Blue
+  'ABB Bank': '#4CAF50',            // Green
+  'Yelo Bank': '#FFC107',           // Amber/Yellow
+  'Rabita Bank': '#9C27B0',         // Purple
+  'Xalq Bank': '#00BCD4',           // Cyan
+  'AccessBank': '#FF9800',          // Orange
+  'Unibank': '#607D8B',             // Blue Grey
+  'VTB Bank': '#009688',            // Teal
+  'Bank Respublika': '#3F51B5',     // Indigo (changed from red)
+  'Pasha Bank': '#8BC34A',          // Light Green
+  'Turan Bank': '#00ACC1',          // Dark Cyan
+  'AGBank': '#7B1FA2',              // Deep Purple
+  'Expressbank': '#E91E63',         // Pink
+  'Muganbank': '#FF5722',           // Deep Orange
+  'Yapı Kredi Bank': '#795548',     // Brown
+  'Bank Avrasiya': '#0288D1',       // Light Blue
+  'default': '#78909C'              // Grey for any other bank
 };
 
 // Create custom icons for different banks
@@ -94,7 +102,7 @@ export default function BranchMap({ selectedBank }: BranchMapProps) {
         />
 
         {displayedBranches.map((branch, idx) => {
-          const color = bankColors[branch.bank_name] || '#95a5a6';
+          const color = bankColors[branch.bank_name] || bankColors['default'];
           const isBankOfBaku = branch.bank_name === 'Bank of Baku';
           const isSelected = selectedBank === branch.bank_name;
 
